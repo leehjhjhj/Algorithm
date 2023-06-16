@@ -4,7 +4,6 @@ bingo = [list(map(int, input().split())) for _ in range(5)]
 orders = [list(map(int, input().split())) for _ in range(5)]
 result = [[False] * 5 for _ in range(5)]
 
-
 def in_check(target):
     global result
     for i in range(5):
