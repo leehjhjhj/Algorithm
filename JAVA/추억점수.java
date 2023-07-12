@@ -1,25 +1,27 @@
-import java.util.List;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Arrays;
 
+
 class Solution {
     public int[] solution(String[] name, int[] yearning, String[][] photo) {
-        Map<String, int> score = new HashMap<>();
-        List<int> answer = new List<>();
-        
-        for (int i; i < name.length; i++) {
+        HashMap<String, Integer> score = new HashMap<>();
+        int[] answer = new int[photo.length];
+
+        for (int i = 0; i < name.length; i++) {
             score.put(name[i], yearning[i]);
         }
-        for (int i; i < photo.length; i++) {
+
+        for (int i = 0; i < photo.length; i++) {
             int rst = 0;
-            for (int j; j < photo[i].length; j++) {
-                rst += score.get(photo[i][j]);
+            for (int j = 0; j < photo[i].length; j++) {
+                if (score.containsKey(photo[i][j])) {
+                    rst += score.get(photo[i][j]);
+                }
             }
-            answer.add(rst);
-            rst = 0;
+            answer[i] = rst;
         }
-        //List<int> result = Arrays.asList(answer);
         return answer;
     }
 }
