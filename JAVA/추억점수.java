@@ -16,9 +16,7 @@ class Solution {
         for (int i = 0; i < photo.length; i++) {
             int rst = 0;
             for (int j = 0; j < photo[i].length; j++) {
-                if (score.containsKey(photo[i][j])) {
-                    rst += score.get(photo[i][j]);
-                }
+                rst += score.getOrDefault(photo[i][j], 0);
             }
             answer[i] = rst;
         }
