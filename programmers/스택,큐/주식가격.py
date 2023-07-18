@@ -1,6 +1,6 @@
 def solution(prices):
     stack = []
-    answer = [0 for _ in range(len(prices))]
+    answer = [i for i in range(len(prices) - 1, -1, -1)]
 
     for i in range(len(prices)):
         if i == 0:
@@ -12,9 +12,6 @@ def solution(prices):
             answer[index] = i - index
 
         stack.append(i)
-
-    for i in range(len(prices)):
-        if answer[i] == 0:
-            answer[i] = len(prices) - 1 - i
-
+    
     return answer
+
